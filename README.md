@@ -6,9 +6,12 @@
 2. copy and rename to .env
 3. fill value in .env file.
 
->for example
->PORT=3000
->PRIVATE_KEY=TEST
+#### Example
+
+```
+PORT=3000
+PRIVATE_KEY=TEST
+```
 
 And for sendgrid api key ( **SENDGRID_API_KEY** ) please fill this value by your api key. if your api key not setting about senders. you can skip the senders setting in sandgrid. the basically of this service using **sandbox mode.**
 
