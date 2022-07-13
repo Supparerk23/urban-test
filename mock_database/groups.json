@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "group_name": "family"
+    },
+    {
+        "id": 2,
+        "group_name": "office"
+    },
+    {
+        "id": 3,
+        "group_name": "close friend"
+    },
+    {
+        "id": 4,
+        "group_name": "others"
+    },
+    {
+        "id": 5,
+        "group_name": "working"
+    }
+]
