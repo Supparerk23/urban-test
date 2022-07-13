@@ -238,6 +238,53 @@ describe('ALL APIs Testing', () => {
     });
   });
 
+  describe('Contact APIs', () => {
+
+    describe('/POST /api/contracts', () => {
+
+      it('send expired token,it should return status 401', (done) => {
+          chai.request(app)
+              .post('/api/contracts')
+              .set('Authorization', bearer_expored_token)
+              .send({
+                user_id : 1
+              })
+              .end((err, res) => {
+                  res.should.have.status(401);
+                  res.body.should.have.all.keys('error');
+                done();
+              });
+      });
+
+      it('send with empty body,it should return status 422', (done) => {
+          chai.request(app)
+              .post('/api/contracts')
+              .set('Authorization', bearerToken)
+              .send({})
+              .end((err, res) => {
+                  res.should.have.status(422);
+                  res.body.should.have.all.keys('error','msg');
+                  res.body.error.should.be.eql(true);
+                done();
+              });
+      });
+
+      it('send with correct body,it should return status 200 with contact', (done) => {
+          chai.request(app)
+              .post('/api/contracts')
+              .set('Authorization', bearerToken)
+              .send({user_id:1})
+              .end((err, res) => {
+                  res.should.have.status(200);
+                  res.body.should.have.all.keys('contacts');
+                done();
+              });
+      });
+
+    });
+
+  });
+
   describe('Tex APIs', () => {
 
     describe('/GET tex', () => {
